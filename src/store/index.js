@@ -1,4 +1,9 @@
 import { createStore } from 'vuex'
+import {VuexPersistence} from 'vuex-persist'
+
+const VuexPersist= new VuexPersistence({
+  strage:localStorage
+})
 
 export default createStore({
   state: {
@@ -17,6 +22,7 @@ export default createStore({
     }
   },
   mutations: {
+    RESTORE_MUTATION:VuexPersist.RESTORE_MUTATION,
     // メモを保存する
     save(state,newMemo){
       if(newMemo.id){
@@ -34,5 +40,6 @@ export default createStore({
   actions: {
   },
   modules: {
-  }
+  },
+  plugins:[VuexPersist.plugin]
 })
