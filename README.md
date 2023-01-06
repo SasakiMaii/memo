@@ -1,4 +1,4 @@
-# memopad
+# メモアプリ
 
 ## Project setup
 ```
